@@ -15,7 +15,7 @@ begin
     gem.add_development_dependency 'rspec', ">=1.3.0"
   end
 rescue LoadError
-  "Jeweler, or one of its dependencies, is not available. Install it with `gem install jeweler`."
+  puts "Jeweler not available. Install it with: gem install jeweler"
 end
 
 
