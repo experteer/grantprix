@@ -5,9 +5,9 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
     gem.name = "grantprix"
-    # s.executables = "grantprix"
-    gem.summary = "TODO summary"
-    gem.description = "TODO description"
+    
+    gem.summary = "Adds GRANT SQL (for Postgres) syntax to your migrations"
+    gem.description = "Adds GRANT SQL (for Postgres) syntax to your migrations"
     gem.homepage = "http://github.com/experteer/grantprix"
     
     gem.authors = ["Rudolf Schmidt"]

@@ -1,6 +1,39 @@
 = grantprix
 
-Description goes here.
+Adds GRANT SQL (for Postgres) syntax to your migrations.
+
+
+== Usage
+
+You now have the *grant* method available in your AcriveRecord migrations. If you 
+are not using ActiveRecord, you can simply use Grantprix.grant in any other class.
+
+
+grant( 'all' ).on( 'table_name' ).to( 'user1' ).to_s
+=> 'GRANT ALL ON table_name TO user1'
+
+grant( :select, :insert, :update, :delete ).on( 'table_name' ).to( 'user1' ).to_s
+=> 'GRANT SELECT, INSERT, UPDATE, DELETE ON table_name TO user1'
+
+
+== Examples
+
+In your migrations you can now use the following syntax to grant permissions:
+
+class CreatePeople < ActiveRecord::Migration
+  def self.up
+    create_table :people do |t|
+      t.string :name
+    end
+
+    execute grant( 'select' ).on( 'people' ).to( 'db_username' ).to_s
+  end
+
+  def self.down
+    drop_table :people
+  end
+end
+
 
 == Note on Patches/Pull Requests
  
@@ -11,6 +44,7 @@ Description goes here.
 * Commit, do not mess with rakefile, version, or history.
   (if you want to have your own version, that is fine but bump version in a commit by itself I can ignore when I pull)
 * Send me a pull request. Bonus points for topic branches.
+
 
 == Copyright
 
