@@ -13,15 +13,16 @@ Gem::Specification.new do |s|
   s.description = %q{Adds GRANT SQL (for Postgres) syntax to your migrations}
   s.extra_rdoc_files = [
     "LICENSE",
-     "README"
+     "README.rdoc"
   ]
   s.files = [
     ".document",
      ".gitignore",
      "LICENSE",
-     "README",
+     "README.rdoc",
      "Rakefile",
      "VERSION",
+     "grantprix.gemspec",
      "lib/grantprix.rb",
      "spec/grantprix_spec.rb",
      "spec/spec.opts",
