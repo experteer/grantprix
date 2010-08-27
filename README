@@ -5,18 +5,18 @@ Adds GRANT SQL (for Postgres) syntax to your migrations.
 
 == Usage
 
-You now have the *grant* method available in your AcriveRecord migrations. If you 
+You now have the +grant+ method available in your AcriveRecord migrations. If you 
 are not using ActiveRecord, you can simply use Grantprix.grant in any other class.
 
 
 grant( 'all' ).on( 'table_name' ).to( 'user1' ).to_s
-=> 'GRANT ALL ON table_name TO user1'
+> 'GRANT ALL ON table_name TO user1'
 
 grant( :select, :insert, :update, :delete ).on( 'table_name' ).to( 'user1' ).to_s
-=> 'GRANT SELECT, INSERT, UPDATE, DELETE ON table_name TO user1'
+> 'GRANT SELECT, INSERT, UPDATE, DELETE ON table_name TO user1'
 
 
-== Examples
+== Example
 
 In your migrations you can now use the following syntax to grant permissions:
 
