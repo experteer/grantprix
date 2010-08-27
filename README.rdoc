@@ -9,30 +9,30 @@ You now have the +grant+ method available in your AcriveRecord migrations. If yo
 are not using ActiveRecord, you can simply use Grantprix.grant in any other class.
 
 
-grant( 'all' ).on( 'table_name' ).to( 'user1' ).to_s
-> 'GRANT ALL ON table_name TO user1'
+  grant( 'all' ).on( 'table_name' ).to( 'user1' ).to_s
+  # 'GRANT ALL ON table_name TO user1'
 
-grant( :select, :insert, :update, :delete ).on( 'table_name' ).to( 'user1' ).to_s
-> 'GRANT SELECT, INSERT, UPDATE, DELETE ON table_name TO user1'
+  grant( :select, :insert, :update, :delete ).on( 'table_name' ).to( 'user1' ).to_s
+  # 'GRANT SELECT, INSERT, UPDATE, DELETE ON table_name TO user1'
 
 
 == Example
 
 In your migrations you can now use the following syntax to grant permissions:
 
-class CreatePeople < ActiveRecord::Migration
-  def self.up
-    create_table :people do |t|
-      t.string :name
+  class CreatePeople < ActiveRecord::Migration
+    def self.up
+      create_table :people do |t|
+        t.string :name
+      end
+
+      execute grant( 'select' ).on( 'people' ).to( 'db_username' ).to_s
     end
 
-    execute grant( 'select' ).on( 'people' ).to( 'db_username' ).to_s
+    def self.down
+      drop_table :people
+    end
   end
-
-  def self.down
-    drop_table :people
-  end
-end
 
 
 == Note on Patches/Pull Requests
