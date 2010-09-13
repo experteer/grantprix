@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{grantprix}
-  s.version = "0.0.1"
+  s.version = "0.0.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Rudolf Schmidt"]
-  s.date = %q{2010-08-27}
+  s.date = %q{2010-09-13}
   s.description = %q{Adds GRANT SQL (for Postgres) syntax to your migrations}
   s.extra_rdoc_files = [
     "LICENSE",
